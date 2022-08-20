@@ -9,7 +9,8 @@ CREATE TABLE categoria (idCategoria INT PRIMARY KEY AUTO_INCREMENT, nombreCatego
 CREATE TABLE producto(idProducto INT auto_increment,idCategoria INT,nombre VARCHAR(50), costo INT,
 estado VARCHAR(50), ubicacion VARCHAR(50), descripcion VARCHAR(50),
 primary key (idProducto, idCategoria),
-FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria)
+FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria) ON DELETE CASCADE 
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE foto(idFoto int primary key auto_increment, idProducto int, descripcion varchar(150), foreign key (idProducto) references producto(idProducto)    ON DELETE CASCADE
@@ -30,7 +31,8 @@ CREATE TABLE denuncias(	idDenuncia INT auto_increment, idDenunciado INT, nombreD
                         opcion VARCHAR(256), razon TEXT, otro TEXT, estado VARCHAR(50) default "pendiente", fecha date,
 primary key (idDenuncia));
 
-CREATE TABLE suscripcion(idSuscripcion INT PRIMARY KEY AUTO_INCREMENT, idCategoria INT, idUsuario INT , correoUsuario VARCHAR(50), FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria));
+CREATE TABLE suscripcion(idSuscripcion INT PRIMARY KEY AUTO_INCREMENT, idCategoria INT, idUsuario INT , correoUsuario VARCHAR(50), FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria) ON DELETE CASCADE 
+        ON UPDATE CASCADE);
 
 CREATE TABLE calificacion (
     idCalificacion INT auto_increment PRIMARY KEY,
@@ -43,43 +45,12 @@ CREATE TABLE calificacion (
     ON DELETE CASCADE
     ON UPDATE CASCADE
     );
-    
-    
-insert into privilegios (visualizar, agregar, editar, eliminar) Values
-	(1,0,0,0),
-    (1,1,1,1);
-    
-insert into rol (idPrivilegio, nombreRol, estado) values (1,'comprador', 'activo'),(2,'vendedor', 'activo');
 
-select * from foto;
-select * from usuario;
-select * from producto;
-ALTER TABLE producto RENAME COLUMN idCliente TO idUsuario;
-select * from categoria;
-select * from suscripcion;
-delete from usuario where idUsuario =2;
-
-ALTER TABLE usuario MODIFY contrasenia blob;
-ALTER TABLE usuario ADD token TEXT;
-ALTER TABLE usuario ADD confirmado ENUM('1','0') DEFAULT '0';
-ALTER TABLE categoria ADD imagen LONGBLOB;
-ALTER TABLE producto ADD ubicacion VARCHAR(50);
-insert into rol (idPrivilegio, nombreRol, estado) values (2,'admin', 'activo');
-ALTER TABLE producto ADD idCliente int;
-Alter TABLE producto ADD contador int DEFAULT 0;
-
-ALTER TABLE producto ADD imagen LONGBLOB;
-ALTER TABLE categoria MODIFY descripcion text;
-
-
-ALTER TABLE producto MODIFY descripcion TEXT;
-ALTER TABLE foto MODIFY imagen LONGBLOB;
-ALTER TABLE foto RENAME COLUMN descripcion TO imagen;
-
--------------------------------------------nuevo 25/7/2022--------------------------------------------
 CREATE TABLE listas (idLista INT primary key auto_increment, idUsuario INT, idProducto INT, tipoLista VARCHAR(50),
-foreign key (idUsuario) references usuario(idUsuario),
-foreign key (idProducto) references producto(idProducto));
+foreign key (idUsuario) references usuario(idUsuario) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+foreign key (idProducto) references producto(idProducto) ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 CREATE TABLE conversacion (
 	id INTEGER AUTO_INCREMENT,
@@ -111,4 +82,37 @@ CREATE TABLE mensaje(
 	FOREIGN KEY (conversacion_id) REFERENCES conversacion(id)
 		ON UPDATE CASCADE
         ON DELETE CASCADE
-);
+); 
+
+-----------------------------------------------------------------------
+   
+insert into privilegios (visualizar, agregar, editar, eliminar) Values
+	(1,0,0,0),
+    (1,1,1,1);
+    
+insert into rol (idPrivilegio, nombreRol, estado) values (1,'comprador', 'activo'),(2,'vendedor', 'activo');
+insert into rol (idPrivilegio, nombreRol, estado) values (2,'admin', 'activo');
+select * from foto;
+select * from usuario;
+select * from producto;
+select * from categoria;
+select * from suscripcion;
+
+------------------------------MODIFICACIONES A LAS TABLAS--------------------------------------------
+ALTER TABLE usuario MODIFY contrasenia blob;
+ALTER TABLE usuario ADD token TEXT;
+ALTER TABLE usuario ADD confirmado ENUM('1','0') DEFAULT '0';
+
+ALTER TABLE producto ADD ubicacion VARCHAR(50);
+ALTER TABLE producto ADD idCliente int;
+Alter TABLE producto ADD contador int DEFAULT 0;
+ALTER TABLE producto ADD imagen LONGBLOB;
+ALTER TABLE producto MODIFY descripcion TEXT;
+
+ALTER TABLE categoria MODIFY descripcion text;
+ALTER TABLE categoria ADD imagen LONGBLOB;
+
+ALTER TABLE foto MODIFY imagen LONGBLOB;
+ALTER TABLE foto RENAME COLUMN descripcion TO imagen;
+
+
