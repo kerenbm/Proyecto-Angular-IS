@@ -1,0 +1,4 @@
+ templateUrl: './actualizar-producto.component.html',
+
+en producto.component.html al agregat categoria al form:
+	    <input type="number" matInput placeholder="categoria x" formControlName="categoriaFormControl" required>
