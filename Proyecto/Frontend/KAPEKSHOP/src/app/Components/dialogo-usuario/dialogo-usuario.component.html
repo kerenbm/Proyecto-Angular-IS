@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Seleccione tipo de usuario</h1>
+<div mat-dialog-content>
+
+  <mat-card>
+    <mat-card-content>
+      <section class="row">
+        <label class="col-12 text-center">Tipo de usuario:</label>
+        <mat-radio-group (click)="onCLick()" class="row ml-2" [(ngModel)]="labelPosition">
+          <mat-radio-button  class="col-6" value="comprador">Comprador</mat-radio-button>
+          <mat-radio-button class="col-6" value="vendedor">Vendedor</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </mat-card-content>
+  </mat-card>
+
+
+</div>

@@ -1,0 +1,48 @@
+<div class="container mt-5 mb-5 contenedor" style="width:600px ">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header text-right">
+          <h1 class="card-header text-center"> Formulario de denuncia</h1>
+          <div class="card-body border border-info">
+            <form class="row" [formGroup]="formularioDenuncia">
+              <div class="col-sm-12 col-lg-6">
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <h1>Infórmanos del problema</h1>
+                    <h4>Infórmanos del problema con la publicación</h4>
+                    <mat-form-field class="input-full" class="input-full" style="width: 100%" appearance="fill">
+                      <mat-label>Opciones</mat-label>
+                      <select formControlName="opcionDenuncia" matNativeControl required>
+                        <option value="Seleccione una opción">--Seleccione una opción--</option>
+                        <option value="Descripción inexacta">Descripción inexacta</option>
+                        <option value="Promocionan un negocio">Promocionan un negocio</option>
+                        <option value="Venta de animales">Venta de animales</option>
+                        <option value="Sin intención de venta">Sin intención de venta</option>
+                        <option value="Venta de armas o drogas">Venta de armas o drogas</option>
+                        <option value="Contenido sexualizado o de adultos">Contenido sexualizado o de adultos</option>
+                        <option value="Discriminación">Discriminación</option>
+                        <option value="Contenido ofensivo o dañino">Contenido ofensivo o dañino</option>
+                        <option value="Estafa">Estafa</option>
+                        <option value="Parece falsificación">Parece falsificación</option>
+                        <option value="Maltrato infantil">Maltrato infantil</option>
+                      </select>
+                    </mat-form-field>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">¿Por qué lo denuncia?</label>
+                    <input type="text" formControlName="motivoDenuncia" class="form-control"
+                      id="exampleFormControlInput1" placeholder="">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Otros</label>
+                    <input type="text" formControlName="otrosDenuncia" class="form-control"
+                      id="exampleFormControlInput1" placeholder="">
+                  </div>
+
+                  <div>
+                    <button class="btn btn-primary btn-success col-sm-5 col-lg-2 btn-lg" style="width: 100px;"
+                      (click)="guardarDenuncia()" type="button"> Enviar</button>
+                  </div>
+                </div>
+              </div>

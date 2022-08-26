@@ -1,0 +1,12 @@
+
+<h1 style="color: #4bb543;">{{!imagenes.length ? ('Agrega imagenes para promocionar tu producto') : 'Previsualización de imagenes'}}</h1>
+<div *ngIf="imagenes.length" class="imagenes-contenedor" style="width: 100%; height: 15rem ; white-space: nowrap; overflow-y: scroll; overflow-x: hidden ;">
+    <div  class="row">
+        <div *ngFor="let imagen of imagenes" [class]="cols">
+            <div style="position: relative ;" >
+                <mat-icon (click)="eliminarImagen(imagen.name)" style="position: absolute; color: red; cursor: pointer;" aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                <img style="width: 100px ; height: 100px ;" [src]="imagen.base64"  class="img-thumbnail" alt="Imagen producto" >
+            </div>
+        </div>
+    </div>
+</div>

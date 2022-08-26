@@ -1,0 +1,40 @@
+ul li a {
+    color:rgb(82, 79, 79);
+}
+.btn{
+    color:white;
+    font-size:medium;
+}
+
+.inicioS{
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.text-danger{
+    text-align: start;
+    margin-left: 7px;
+}
+
+
+@media (min-width: 576px) {
+    .contenedor {
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+}
+@media (min-width: 768px) {
+    .contenedor {
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+}
+@media (min-width: 992px) {
+    .contenedor {
+        padding-left: 15rem;
+        padding-right: 15rem;
+
+    }
+}
