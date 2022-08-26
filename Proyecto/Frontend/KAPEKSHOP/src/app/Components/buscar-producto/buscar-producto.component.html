@@ -1,0 +1,83 @@
+<app-header>?</app-header>
+<div class="container mt-5 ">
+    
+    <mat-button-toggle-group name="fontStyle" [(ngModel)]="opcionFiltrar" aria-label="Font Style">
+        <mat-button-toggle value="nombreP">Nombre producto</mat-button-toggle>
+        <mat-button-toggle value="departamento">Departamento</mat-button-toggle>
+        <mat-button-toggle value="categoria">Categoria</mat-button-toggle>
+    </mat-button-toggle-group>
+    
+    <div *ngIf="opcionFiltrar ==='nombreP'" class="col-12">
+        
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="¿Qué estás buscando?"
+                    [(ngModel)]="busqueda">
+                <button type="submit" class="input-group-text bg-success text-light" (click)="modalBuscar(opcionFiltrar)">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+                
+            </div>
+        </form>
+    </div>
+    <div *ngIf="opcionFiltrar ==='departamento'" class="col-12">
+        
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="¿Qué estás buscando?"
+                    [(ngModel)]="busqueda">
+                <button type="submit" class="input-group-text bg-success text-light" (click)="modalBuscar(opcionFiltrar)">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+                
+            </div>
+        </form>
+    </div>
+    <div *ngIf="opcionFiltrar ==='categoria'" class="col-12">
+        
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="¿Qué estás buscando?"
+                    [(ngModel)]="busqueda">
+                <button type="submit" class="input-group-text bg-success text-light" (click)="modalBuscar(opcionFiltrar)">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+                
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<div class="col-12 float-start">
+    <div class="container py-5">
+        <div class="row text-align-left py-1">
+            <div *ngIf="verificacionProFil" class="row">
+                <h3 style="text-align: center;">No se encontraron resultados</h3>
+            </div>
+            <div class="row " >
+                <div *ngFor=" let producto of productosFiltrados" class="col-4 mt-4">
+                    <mat-card class="card-producto">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>{{producto?.nombre}}</mat-card-title>
+                        </mat-card-header>
+                        <img height="200" mat-card-image src="{{producto?.imagen}}" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                            <p class="descripcion">
+                                {{producto?.descripcion}}
+                            </p>
+                            <p class="precio">
+                                Precio: {{formatoDinero(producto?.costo)}}
+                            </p>
+                        </mat-card-content>
+
+                        <button routerLink="/producto/detalle/{{producto.idProducto}}" mat-stroked-button
+                            color="warn">Ver detalles </button>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

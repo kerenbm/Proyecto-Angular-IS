@@ -1,0 +1,11 @@
+<form [formGroup]="formulario">
+    <mat-form-field style="width: 100%;">
+      <div class="myfilebrowser">
+        <mat-toolbar>
+          <input  matInput class="input-archivo" type="text" placeholder="Subir imagen"  readonly formControlName="inputImg" required />
+          <button mat-flat-button class="btn-file btn-1" style="background-color: #4484CE;" color="primary">Subir Imagen</button>
+        </mat-toolbar>
+        <input type="file" #inputImagen id="fileUpload" (change)="handleChange($event)" formControlName="subirImg" name="fileUpload" multiple="multiple" accept='image/*' required />
+      </div>
+    </mat-form-field>
+</form>
