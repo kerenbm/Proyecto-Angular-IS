@@ -31,7 +31,7 @@ export class DenunciasComponent implements OnInit {
 
   tomarDenuncia(id:number, idDenuncia:number){
     console.log("Eliminar cuenta del usuario")
-    this.usuarioService.eliminarUsuario(id).subscribe(res=>{
+    this.productoService.eliminarProducto(id).subscribe(res=>{
       this.eliminarDenuncia(idDenuncia)
 
     },error=>{
