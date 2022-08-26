@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { LandingComponent } from './Components/landing/landing.component';
-import { ListarProductosComponent } from './Components/listar-productos/listar-productos.component';
 import { RegistrarUsuarioComponent } from './Components/registrar-usuario/registrar-usuario.component';
 import { categoria } from './models/categorias';
 import { AuthGuard } from 'src/app/auth/auth.guard'
@@ -30,7 +29,6 @@ const routes: Routes = [
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'editar-usuario/:id', component: RegistrarUsuarioComponent, canActivate: [AuthGuard] },
-  { path: 'listar-productos', component: ListarProductosComponent },
   { path: 'confirmar/:token', component: ValidarCorreoComponent },
   { path: 'tienda', component: TiendaComponent, canActivate: [AuthGuard] },
   { path: 'recuperar-contrasenia/:token', component: RecuperarContraseniaComponent },
