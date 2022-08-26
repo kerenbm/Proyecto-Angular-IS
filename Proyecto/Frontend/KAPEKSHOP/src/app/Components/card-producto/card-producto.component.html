@@ -1,0 +1,72 @@
+<mat-card class="card-producto">
+  <div class="row">
+    <div class="col-12 float-start">
+
+      <mat-card class="card-producto">
+        <div class="row">
+          <div *ngIf="comprobarEsVendedor(listarProducto)" class="col-12 float-start">
+            <svg (click)="modalEliminar()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 float-end" fill="none"
+              viewBox="0 0 24 24" style="width: 15px;" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <svg (click)="editarProducto()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 float-end" fill="none"
+              style="width: 15px;" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <span routerLink="/form-Denuncia">Denunciar</span>
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+
+        <div (click)="mostrarProducto()" class="">
+          <div class="" (click)="mostrarProducto()">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{listarProducto?.nombre}}</mat-card-title>
+            </mat-card-header>
+            <img height="200" mat-card-image src="{{listarProducto?.imagen}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p class="descripcion">
+                {{listarProducto?.descripcion}}
+              </p>
+              <p class="precio">
+               Precio: {{formatoDinero(listarProducto?.costo)}}
+              </p>
+              <div>
+                <span>
+                  Calificación: 
+                </span>
+                <ul class="list-unstyled d-flex justify-content-between">
+                  <li>
+                      
+                      
+                      <i style="cursor: pointer;" *ngFor="let estrella of estrellas; index as i" [class]="estrella"></i>
+      
+      
+                  </li>
+              </ul>
+              </div>
+
+            </mat-card-content>
+          </div>
+          <div>
+            <button routerLink="/producto/detalle/{{listarProducto.idProducto}}" mat-stroked-button color="warn">Ver
+              detalles </button>
+              <i *ngIf="AgregadoALista" class="fas fa-heart float-end" (click)="eliminarDeListaDeseos(listarProducto.idProducto)"></i>
+              <i *ngIf="!AgregadoALista" class="far fa-heart float-end" (click)="agregarAListaDeseos()"></i>
+          </div>
+        </div>
+
+      </mat-card>
+    </div>
+  </div>
+</mat-card>

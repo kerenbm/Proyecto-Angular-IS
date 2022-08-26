@@ -1,0 +1,32 @@
+
+
+<mat-card class="card-categoria" >
+  <div *ngIf="comprobarUsuarioAdmin()" class="row">
+    <div  class="col-12 float-start">
+      <svg (click)="open()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 float-end" fill="none" viewBox="0 0 24 24" style="width: 15px;"  stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <svg (click)="editarCategoria()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 float-end" fill="none" style="width: 15px;" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+      </svg>
+    </div>
+  </div>
+  <div (click)="onclickCategoria()" class="">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{categoria?.nombreCategoria}}</mat-card-title>
+    </mat-card-header>
+    <img height="200" mat-card-image src="{{categoria?.imagen}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p class="descripcion">
+        {{categoria?.descripcion}}
+      </p>
+    </mat-card-content>
+  </div>
+  <div>
+    <mat-card-actions>
+      <button (click)="actualizarSuscripcion()" mat-button>{{suscripcionCategoria ? 'Anular suscripción' : 'Suscribirse'}}</button>
+    </mat-card-actions>
+
+  </div>
+  </mat-card>

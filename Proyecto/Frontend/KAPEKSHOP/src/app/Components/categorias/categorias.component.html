@@ -1,0 +1,28 @@
+<app-header urlItemActual="/tienda"></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5 ">
+            <h1 class="text-success text-center">¡Hola {{usuarioActual?.nombre}}!</h1>
+            <h1 class="text-success text-center">Busca productos en las diferentes categorías que tenemos para ti</h1>
+        </div>
+        <div *ngIf="comprobarUsuarioAdmin()" (click)="open()" class="col-12" style="cursor: pointer;">
+            <div mat-raised-button class="float-left" matTooltip="Agregar nueva categoría"
+                aria-label="Pulsa el boton para agregar nueva categoría"
+                style="width: 50px ; height: 50px ; background-color: black; border-radius: 100% ; margin-left: auto;">
+
+                <svg style="color:white" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let categoria of categorias" class="col-4 mt-4">
+            <app-card-categoria (onEvento)="obtenerCategorias()" [categoria]="categoria"></app-card-categoria>
+        </div>
+
+    </div>
+</div>
