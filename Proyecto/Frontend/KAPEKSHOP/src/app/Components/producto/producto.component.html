@@ -1,0 +1,108 @@
+<div class="container mt-5 mb-5 contenedor">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>{{editandoProducto ? 'Editar producto' : 'Agregar Producto' }} </h3>
+        </div>
+        <div class="card-body border border-info">
+          <form class="row" [formGroup]="formularioCrear">
+            <div class="col-sm-12 col-lg-6">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombreFormControl" placeholder="Portátil" value="">
+                    <mat-error *ngIf="formularioCrear.get('nombreFormControl')?.invalid">El nombre es requerido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Categoria</mat-label>
+                    <input type="text" matInput placeholder="categoria" formControlName="categoriaFormControl" required>
+                    <mat-icon matSuffix></mat-icon>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Selecciona un estado</mat-label>
+                    <select formControlName="estadoFormControl" matNativeControl required>
+                      <option value="">--Seleccione una opción--</option>
+                      <option value="Nuevo">Nuevo</option>
+                      <option value="Usado">Usado</option>
+                      <option value="Aceptable">Aceptable</option>
+                    </select>
+                    <mat-error *ngIf="formularioCrear.get('estadoFormControl')?.invalid">Seleccione un estado
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 mb-3">
+                  <!--En onchange podemos llamar a una funcion para hacer lo que queramos. OBS//convertirlas a base64-->
+                  <app-btn-imagen (onChange)="fileChangeEvent($event)"></app-btn-imagen>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+              <div class="row">
+
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput formControlName="descripcionFormControl"  value="">
+                    <mat-error *ngIf="formularioCrear.get('descripcionFormControl')?.invalid">La descripcion es
+                      requerida</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Selecciona un departamento</mat-label>
+                    <select formControlName="ubicacionFormControl" matNativeControl required>
+                      <option value="">--Seleccione una opción--</option>
+                      <option value="Atlántida">Atlántida</option>
+                      <option value="Choluteca">Choluteca</option>
+                      <option value="Colón">Colón</option>
+                      <option value="Copán">Copán</option>
+                      <option value="Cortes">Cortés</option>
+                      <option value="Comayagua">Comayagua</option>
+                      <option value="El Paraíso">El Paraíso</option>
+                      <option value="Francisco Morazan">Francisco Morazán</option>
+                      <option value="Gracias a Dios">Gracias a Dios</option>
+                      <option value="Intibuca">Intibucá</option>
+                      <option value="Islas de la Bahia">Islas de la Bahía</option>
+                      <option value="La Paz">La Paz</option>
+                      <option value="Lempira">Lempira</option>
+                      <option value="Ocotepeque">Ocotepeque</option>
+                      <option value="Olancho">Olancho</option>
+                      <option value="Santa Barbara">Santa Bárbara </option>
+                      <option value="Valle">Valle</option>
+                      <option value="Yoro">Yoro</option>
+                    </select>
+                    <mat-error *ngIf="formularioCrear.get('ubicacionFormControl')?.invalid">Seleccione un departamento
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 mb-3">
+                  <mat-form-field class="input-full" class="input-full" style="width: 100%" appearance="fill">
+                    <mat-label>Precio</mat-label>
+                    <input matInput formControlName="costoFormControl"  value="">
+                    <mat-error *ngIf="formularioCrear.get('costoFormControl')?.invalid">El precio es requerida
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <button [disabled]="formularioCrear.invalid"
+                class="btn btn-primary btn-success col-sm-12 col-lg-6 btn-lg" type="button"
+                (click)="handleSubmit()">{{editandoProducto ? 'Editar producto' : 'Agregar Producto' }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

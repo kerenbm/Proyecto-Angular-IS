@@ -1,0 +1,9 @@
+.modal-error {
+    background-color: rgb(177, 21, 21);
+    color:rgb(0, 0, 0);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+    font-weight: bold;
+}

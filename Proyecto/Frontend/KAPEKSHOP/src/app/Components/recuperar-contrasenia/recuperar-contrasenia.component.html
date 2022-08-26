@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container mt-5 mb-5">
+    <form (submit)="handleSubmit($event)" [formGroup]="formulario" class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div *ngIf="!tokenValido" class="alert alert-danger text-center" role="alert">Token no válido</div>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Recuperar Contraseña</h1>
+                    </div>
+                    <mat-card>
+                        <mat-card-content class="row">
+                           
+                            <mat-form-field  class="col-12 full-width-input separar mb-3">
+                                <input [(ngModel)]="contrasenia"  formControlName="contrasenia"type="password" matInput placeholder="Contraseña" required>
+                                <mat-error >{{obtenerErrorContrasenia()}}</mat-error>
+        
+                            </mat-form-field>
+                            <mat-form-field  class="col-12 full-width-input separar mb-3">
+                                <input [(ngModel)]="confirmarContrasenia"  formControlName="confirmarContrasenia"type="password" matInput placeholder="Confirma tu contraseña" required>
+                                <mat-error >{{obtenerErrorContrasenia2()}}</mat-error>
+        
+                            </mat-form-field>
+                            <div class="col-12 mb-3 text-center">
+                                <button [disabled]="!tokenValido" type="submit" mat-raised-button class="btn btn-primary btn-success btn-lg">Actualizar contraseña</button>
+                        </div>
+                        </mat-card-content>
+                    </mat-card>
+            </div>
+         </div>
+      </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5 mb-5">
+    <form (submit)="handleSubmit($event)" [formGroup]="formulario" class="row">
+         <div class="col-lg-6 offset-lg-3">
+            <div *ngIf="errorSolicitud" class="alert alert-danger text-center" role="alert">Error al solicitar recuperar contraseña</div>
+            <div *ngIf="solicitudEnviada && !errorSolicitud" class="alert alert-success text-center" role="alert">Se ha enviado las instrucciones a tu correo para poder restablecer la contraseña</div>
+            <div *ngIf="!solicitudEnviada" class="card">
+                <div class="card-header text-center">
+                    <h1>Solicitar actualizar contraseña</h1>
+                    </div>
+                    <mat-card>
+                        <mat-card-content class="row">
+                           
+                            <mat-form-field class=" col-12 full-width-input mb-3">
+                                <input formControlName="correo" type="email" matInput placeholder="Correo" required>
+                                <mat-error >{{obtenerErrorCorreo()}}</mat-error>
+                            </mat-form-field><br>
+
+                            <div class="mb-3">
+                                <button type="submit" mat-raised-button class="btn btn-primary btn-success btn-lg float-end">Solicitar restablecer contraseña</button>
+                                <button class="btn btn-secondary btn-lg float-start" routerLink="/registrar-usuario">Atrás</button>
+                        </div>
+                        </mat-card-content>
+                    </mat-card>
+            </div>
+         </div>
+      </form>
+</div>
