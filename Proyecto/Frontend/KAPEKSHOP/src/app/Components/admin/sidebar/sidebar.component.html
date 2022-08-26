@@ -1,0 +1,24 @@
+<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+    
+    <div
+        class="sidebar-close"
+        (click)="clickClose()"
+    >
+        X
+    </div>
+    <div class="sidebar-content mt-5">
+      <a class="titulo-tienda" href="/">
+              KAPEK SHOP
+      </a>
+        <div class="contenedor">
+          <span (click)="setItemActual(0)"[ngClass]="itemActual == items[0] ? 'item-actual' : 'item-sidebar'" >Denuncias</span>
+          <!--
+          <span (click)="setItemActual(1)"[ngClass]="itemActual == items[1] ? 'item-actual' : 'item-sidebar'">Actualizar categorías</span>
+          <span (click)="setItemActual(2)"[ngClass]="itemActual == items[2] ? 'item-actual' : 'item-sidebar'">Anuncios</span>
+          -->
+          <span (click)="setItemActual(3)"[ngClass]="itemActual == items[3] ? 'item-actual' : 'item-sidebar'">Estadísticas</span>
+  
+        </div>
+  
+      </div>
+</div>

@@ -1,0 +1,13 @@
+<app-sidebar (onClickItem)="setItemActual($event)" (sidebarShowChange)="setSidebar(false)" [sidebarShow]="sidebarShow"></app-sidebar>
+<div class="row mt-5">
+    <div *ngIf="sidebarShow" class="col-3"></div> 
+    <main [ngClass]="!sidebarShow ? 'col-12' : 'col-12'">
+        <!-- Reenderizar los componentes aquí -->
+        <app-denuncias *ngIf="itemActual == 0"></app-denuncias>
+        <app-categorias-admin *ngIf="itemActual == 1"></app-categorias-admin>
+       <!-- <app-anuncios *ngIf="itemActual == 2"></app-anuncios>-->
+
+            <app-estadisticas *ngIf="itemActual == 3"></app-estadisticas>
+
+    </main>
+</div>

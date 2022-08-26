@@ -1,0 +1,14 @@
+.body {
+    background: #000000;
+    font-family: 'Poppins', monospace;
+    color: white;
+    font-size: .7em;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.contenedor {
+    background-color: rgba(0, 0, 0, 0.863);
+    padding: 10px 10px 30px;
+    border: 1px solid #505050;
+}

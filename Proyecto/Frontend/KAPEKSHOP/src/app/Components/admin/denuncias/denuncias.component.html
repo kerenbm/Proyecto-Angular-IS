@@ -1,0 +1,53 @@
+<div class="row" >
+    <div class="col-3">
+
+    </div>
+    <div class="col-8 " >
+        <!-- Mostrar una tabla con todas las denuncias recibidas -->
+        <div class="card" >
+            <div class="card-header text-center">
+                <h3 class="card-title">Denuncias</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            
+                            <th>Usuario afectado</th>
+                            <th>Usuario infractor</th>
+                            <th>Producto</th>
+                            <th>Motivo</th>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let denuncia of listarDenuncias">
+                            <td>{{ denuncia.idDenuncia }}</td>
+                            <td>{{ denuncia.nombreDenunciante }}</td>
+                            <td>{{ denuncia.nombreDenunciado }}</td>
+                            <td>{{ denuncia.nombreProducto }}</td>
+                            <td>{{ denuncia.opcion }}</td>
+                            <td>{{ denuncia.fecha }}</td>
+                            <td>{{ denuncia.razon }}</td>
+                            <td>{{denuncia.estado}}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-danger" style="width: 150px;" (click)="eliminarDenuncia(denuncia.idDenuncia)">Desestimar</button>
+                                    </div>
+                                    <div class="col-12 mt-2">
+                                        <button class="btn btn-warning" style="width: 150px;" (click)="tomarDenuncia(denuncia.idDenunciado, denuncia.idDenuncia)">Aceptar</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+    </div>
+</div>
