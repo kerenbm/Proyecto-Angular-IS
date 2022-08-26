@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrarUsuarioComponent } from './Components/registrar-usuario/registrar-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
-import { ListarProductosComponent } from './Components/listar-productos/listar-productos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LandingComponent } from './Components/landing/landing.component';
@@ -59,15 +58,13 @@ import { PolarComponent } from './Components/admin/estadisticas/polar/polar.comp
 import { ScatterComponent } from './Components/admin/estadisticas/scatter/scatter.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ModalConfirmacionComponent } from './Components/modal-confirmacion/modal-confirmacion.component';
-import { actualizarProductoComponent } from './Components/actualizar-producto/actualizar-producto.component';
 import { DetalleDeProductoComponent } from './Components/detalle-de-producto/detalle-de-producto.component';
 
 
  
-//import { ProductoComponent } from './Components/producto/producto.component';
+
 import { PaginadorComponent } from './Components/paginador/paginador.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-//import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
 import { MisProductosComponent } from './Components/mis-productos/mis-productos.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
@@ -77,13 +74,13 @@ import { MensajeComponent } from './Components/mensaje/mensaje.component';
 import { BuscarComponent } from './Components/buscar/buscar.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { BuscarProductoComponent } from './Components/buscar-producto/buscar-producto.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrarUsuarioComponent,
     InicioComponent,
-    ListarProductosComponent,
     LandingComponent,
     HeaderComponent,
     BodyComponent,
@@ -134,7 +131,7 @@ import { BuscarProductoComponent } from './Components/buscar-producto/buscar-pro
     LinealComponent,
     ModalConfirmacionComponent,
     PaginadorComponent,
-    actualizarProductoComponent,
+    
     MisProductosComponent,
     CarouselComponent,
     ListaDeDeseosComponent,
@@ -167,7 +164,8 @@ import { BuscarProductoComponent } from './Components/buscar-producto/buscar-pro
     NgChartsModule,
     MatPaginatorModule,
     NgbCarouselModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatButtonToggleModule
     
 
   ],
