@@ -1,0 +1,88 @@
+.cardContainer{
+    width: 400px;
+    height: 600px;
+    position: fixed;
+    right: 0.56rem;
+    bottom: 0.56rem;
+}
+
+
+.card-header{
+    background-color: rgb(208, 137, 216);
+    color: white;
+    font-weight: 700;
+}
+
+
+.material-symbols-outlined {
+  
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined:active {
+    transform: scale(0.9);
+    
+}
+
+.card-body{
+    padding: 0.5rem;
+    position: static;
+    background-image: url(https://cutewallpaper.org/es/11/rosa-claro-fondos-de-pantalla/1010218543.jpg);
+}
+
+.enviado{
+    display: block;
+    float: right;
+    background-color: rgb(94, 51, 121);
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.recibido{
+    display: block;
+    float: left;
+    background-color: rgb(92, 145, 156);
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.contenedorMensajes{
+    overflow: scroll;
+    max-height: 100%;
+    padding: 0.3rem;
+}
+
+.contenedorMensajes::-webkit-scrollbar{
+    display: none;
+}
+
+.card-footer{
+    margin-block: 10px 10px;
+    position: static;
+}
+
+.conversacion{
+    text-align: center;
+    background-color: rgb(102, 57, 150);
+    color: white;
+    display:inline-block;
+    border-radius: 10px;
+    width: 80%;
+    cursor: pointer;
+}
+
+.contenedorConversacion{
+    margin-right:auto;
+    
+    text-align: center;
+    justify-content:center
+}
+

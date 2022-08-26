@@ -1,0 +1,54 @@
+
+<app-header></app-header>
+<div class="row ">
+  <aside style="background-color: rgb(235, 243, 242); height: 100vh;" class="col-2">
+    <app-buscar (userChat)="seleccionarDestinatario($event)"></app-buscar>
+   <!--INCLUIR UN DIV CON LAS CONVERSACIONES Y DARLE ESTILO :V--> 
+   <div style="font-weight: 700;">
+    Mis chats
+  </div>
+  <br>
+    <div class="contenedorConversacion" *ngFor="let conversacion of usuariosConversacion">
+      
+      <p class="conversacion" (click)="seleccionarDestinatario(conversacion)">
+        {{conversacion.nombre}}
+      </p>
+    </div>
+  </aside>
+  <div class="col-10" > 
+    <div class="card cardContainer" >
+      <div class="card-header">
+        <span class="material-symbols-outlined">
+          face
+        </span>
+         {{chat_activo ? receptor_seleccionado?.nombre : usuarioChat[0].nombre}}
+      </div>
+      
+      <div class="card-body">
+         <div id="contenedorMensajes" class="contenedorMensajes h-100">
+            <p *ngFor="let mensaje of mensajes" class="msj p-2" [ngClass]="(usuarioActual.idUsuario==mensaje.emisor_id)? 'enviado': 'recibido'">
+              {{mensaje.mensaje}}
+            </p>
+         </div>
+      </div>
+      <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">
+        
+        <input type="text" class="form-control" placeholder="Ingrese su mensaje" [(ngModel)]="nuevoMensaje" [ngModelOptions]="{standalone: true}">
+        <div class="input-group-append" (click)="enviarMensaje()">
+          <span class="input-group-text" id="basic-addon2"> 
+            <span style="cursor: pointer;" class="material-symbols-outlined">
+              send
+              </span>
+            
+          </span>
+        </div>
+        
+        
+      </form>
+  </div>
+  </div>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</div>
+
+
+

@@ -1,0 +1,31 @@
+<div class="container mt-5 mb-5">
+    <form (submit)="handleSubmit($event)" [formGroup]="inicioSesion" class="row">
+         <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Iniciar Sesión</h1>
+                    </div>
+                    <mat-card>
+                        <mat-card-content>
+                           
+                            <mat-form-field class="full-width-input mb-3">
+                                <input formControlName="correo" type="email" matInput placeholder="Correo" required>
+                                <mat-error >{{obtenerErrorCorreo()}}</mat-error>
+                            </mat-form-field><br>
+                            <mat-form-field  class="full-width-input separar mb-3">
+                                <input  formControlName="contrasenia"type="password" matInput placeholder="Contraseña" required>
+                                <mat-error >{{obtenerErrorContrasenia()}}</mat-error>
+                            
+                            </mat-form-field>
+                            <div class="mb-3">
+                                <label class="inicio"  >¿Olvidaste la contraseña? <a routerLink="/recuperar-contrasenia"> Haz clic aquí</a></label>
+                                <br><br>
+                                <button type="submit" mat-raised-button class="btn btn-primary btn-success btn-lg float-end">Iniciar Sesión</button>
+                                <button class="btn btn-secondary btn-lg float-start" routerLink="/registrar-usuario">Atrás</button>
+                        </div>
+                        </mat-card-content>
+                    </mat-card>
+            </div>
+         </div>
+      </form>
+</div>

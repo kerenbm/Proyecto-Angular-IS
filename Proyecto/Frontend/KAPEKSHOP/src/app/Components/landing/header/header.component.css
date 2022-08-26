@@ -1,0 +1,11 @@
+.item-seleccionado {
+    font-weight: bold;
+}
+
+.nav-icon{
+    margin-left: 7px;
+
+}
+.h-6{
+    cursor: pointer;
+}

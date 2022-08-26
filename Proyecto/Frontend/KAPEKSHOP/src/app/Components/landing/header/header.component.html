@@ -1,0 +1,71 @@
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <button (click)="clickBurguer()"  mat-button class="menu-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div class="container d-flex justify-content-end align-items-end">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="#">
+            KAPEK SHOP
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+            id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-center mx-lg-auto">
+                    <li [ngClass]="urlItemActual == '/' ? 'item-seleccionado nav-item': 'nav-item'" >
+                        <a class="nav-link" routerLink="/">Principal</a>
+                    </li>
+                    
+                    <li *ngIf="comprobarUsuarioAdmin()" [ngClass]="urlItemActual == '/tienda' ? 'item-seleccionado nav-item': 'nav-item'" >
+                        <a class="nav-link" routerLink="/tienda">Admin</a>
+                    </li>
+                    <li *ngIf="comprobarUsuario()" style="cursor: pointer;" class="nav-item">
+                        <a class="nav-link" routerLink="/categorias">Categorias</a>
+                    </li>
+                    <li *ngIf="comprobarUsuario()" style="cursor: pointer;" class="nav-item">
+                        <a class="nav-link" routerLink="/anuncios">Lo más relevante</a>
+                    </li>
+                    
+                    <li *ngIf="!token?.correo" class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/registrar-usuario">Registrarse</a>
+                    </li>
+                    <li *ngIf="!token?.correo" class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/inicio">Iniciar sesión</a>
+                    </li>
+                    <li *ngIf="token?.correo" class="nav-item">
+                        <a class="nav-link" style="cursor: pointer;" (click)="cerrar()">Cerrar sesión</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <a style="cursor: pointer;"
+            routerLink="/buscar-producto"><i class="fa fa-fw fa-search text-dark mr-2"></i></a>
+            
+            
+            <a *ngIf="comprobarUsuario()" class="nav-icon">
+                <svg routerLink="/producto/lista-de-deseos/{{usuarioActual?.idUsuario}}" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+            </svg>
+            </a>
+            <a (click)="inicioSesion()" class="nav-icon position-relative text-decoration-none" style="cursor: pointer;">
+            
+                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                <span>{{usuarioActual?.nombre}}</span>
+                <span
+                    class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<!-- Fin Header -->
+
+

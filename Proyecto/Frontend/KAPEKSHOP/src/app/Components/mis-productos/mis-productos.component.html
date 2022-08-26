@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row" *ngIf="!mostarFormulario" >
+        <div *ngFor="let item of paginacionProductos(inicio,final)" class="col-4">
+            <app-card-producto (onEditarProducto)="editarProducto($event)" (onEvento)="obtenerProductosPorId()" [listarProducto]="item"></app-card-producto>
+        </div>  
+    </div>
+</div>

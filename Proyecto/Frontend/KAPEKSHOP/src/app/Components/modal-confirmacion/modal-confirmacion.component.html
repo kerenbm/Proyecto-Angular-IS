@@ -1,0 +1,25 @@
+<div class="question text-center">
+    <div class="col-12">
+      <button type="button" class="btn-close float-end mx-2 my-2" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="row">
+        
+        <div class="col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" style="width: 100px;" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        
+
+  </div>
+</div>
+
+<div class="text-center mt-3">
+    <h3>{{mensaje.titulo1}}</h3>
+    <h3>{{mensaje.titulo2}}</h3>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary text-center btn-1 float-start" style="margin-left: auto; margin-right: auto; padding-left: 1.25rem; padding-right: 1.25rem;" (click)="activeModal.close('Close click')">Cancelar</button>
+    <button class="btn btn-primary text-center btn-1 float-end" style="margin-left: auto; margin-right: auto; padding-left: 1.25rem; padding-right: 1.25rem;"  (click)="clickConfirmar()">Eliminar</button>
+    
+</div>
