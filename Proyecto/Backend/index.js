@@ -55,7 +55,7 @@ io.on('connection',(socket)=>{
 
 
 // Ejecutar una tarea cada minuto
- 
+ /*
  cron.schedule('* * * * *', () => {
      Categoria.generarPdf( (err, data) => {
          if(err){
@@ -66,8 +66,8 @@ io.on('connection',(socket)=>{
      } )
 
 })
-
-
+*/
+/*
 cron.schedule('* * * * *', () => {
     Producto.crearAnuncios((err, data) => {
         if(err)
@@ -76,7 +76,7 @@ cron.schedule('* * * * *', () => {
             console.log("se crearon nuevos anuncios")
     })
 })
-
+*/
 // Ejecutar una tarea todos los lunes a las 7 de la mañana
 cron.schedule('0 7 * * 1', () => {
     Categoria.generarPdf( (err, data) => {
